@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HI</title>
+</head>
+<body>
+<script>
+    function SwitchButton() {
+        this.switchOn = function () {
+            this.status = 'On';
+        };
+        this.switchOff = function () {
+            this.status = 'Off';
+        };
+        this.connectToLamp = function (lamp) {
+            this.lamp = lamp;
+            alert('Kết nối tới ' + this.lamp);
+        }
+        this.statusOfSwitch = function () {
+            alert('Công tắc điện ' + this.status);
+            return this.status;
+        }
+    }
+    function ElectricLamp() {
+        this.name = 'Đèn điện';
+        this.statusOfLamp = function () {
+            this.status = switchButton.statusOfSwitch();
+            alert('Ánh sáng' + this.status);
+        }
+    }
+    let switchButton = new SwitchButton();
+    let lamp = new ElectricLamp();
+    switchButton.connectToLamp(lamp.name);
+    switchButton.switchOn();
+    switchButton.statusOfSwitch();
+    lamp.statusOfLamp();
+    switchButton.switchOff();
+    switchButton.statusOfSwitch();
+    lamp.statusOfLamp();
+</script>
+</body>
+</html>
